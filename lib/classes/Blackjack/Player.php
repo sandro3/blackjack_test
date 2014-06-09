@@ -10,19 +10,20 @@ use Blackjack\Card;
 
 class Player
 {
-    private $_cards = array();
+    private $cards = array();
 
     /**
      *
      * Adds the card
      * @param mixed $card
+     * @return bool
      */
     public function addCard($card) {
         if (!$card instanceof Card) {
             $card = new Card($card);
         }
         if ($card->isValid()) {
-            $this->_cards[] = $card;
+            $this->cards[] = $card;
             return true;
         }
         else {
@@ -37,7 +38,7 @@ class Player
      */
     public function getScore() {
         $score = 0;
-        foreach ($this->_cards as $card) {
+        foreach ($this->cards as $card) {
             if ($card->isAce() && $score + 11 > 21) {
                 $score += 1;
             }
@@ -46,6 +47,15 @@ class Player
             }
         }
         return $score;
+    }
+
+    /**
+     *
+     * Resets player cards
+     */
+    public function reset() {
+        unset ($this->cards);
+        $this->cards = array();
     }
 
 }
