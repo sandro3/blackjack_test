@@ -7,7 +7,27 @@ The blackjack score is the face value of the two cards added together, with card
 
 How to use
 ----------
-
+```
 cd scripts
-
 php cli_test.php 10S QH
+```
+
+Examples
+--------
+```
+$ php cli_test.php AS 9H
+Blackjack add test
+Result score: 20
+$ php cli_test.php 2C 10H
+Blackjack add test
+Result score: 12
+$ php cli_test.php 2C QH
+Blackjack add test
+Result score: 12
+$ php cli_test.php AC AH
+Blackjack add test
+Result score: 12
+$ php cli_test.php AC QH
+Blackjack add test
+Result score: 21
+```
